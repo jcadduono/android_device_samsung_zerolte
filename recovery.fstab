@@ -1,8 +1,11 @@
-/boot		emmc		/dev/block/platform/15570000.ufs/by-name/BOOT
-/recovery		emmc		/dev/block/platform/15570000.ufs/by-name/RECOVERY
-/system		ext4		/dev/block/platform/15570000.ufs/by-name/SYSTEM
-/data		ext4		/dev/block/platform/15570000.ufs/by-name/USERDATA	flags=encryptable=footer;length=-20480
-/cache		ext4		/dev/block/platform/15570000.ufs/by-name/CACHE
-/modem		emmc		/dev/block/platform/15570000.ufs/by-name/RADIO	flags=backup=1;display="Modem"
-/efs			ext4		/dev/block/platform/15570000.ufs/by-name/EFS		flags=backup=1;display="EFS"
-/usbstorage	vfat		/dev/block/sdd1 /dev/block/sdd				flags=display="USB Storage";storage;wipeingui;removable
+/boot		emmc	/dev/block/bootdevice/by-name/BOOT
+/recovery	emmc	/dev/block/bootdevice/by-name/RECOVERY	flags=backup=1
+/system		ext4	/dev/block/bootdevice/by-name/SYSTEM
+/data		ext4	/dev/block/bootdevice/by-name/USERDATA	flags=encryptable=footer;length=-20480
+/cache		ext4	/dev/block/bootdevice/by-name/CACHE
+/preload	ext4	/dev/block/bootdevice/by-name/HIDDEN	flags=backup=1;display="Preload"
+/modem		emmc	/dev/block/bootdevice/by-name/RADIO	flags=backup=1;display="Baseband";flashimg
+/modem_debug	emmc	/dev/block/bootdevice/by-name/CP_DEBUG	flags=backup=1;display="Baseband (Debug)";flashimg;subpartitionof=/modem
+/efs		ext4	/dev/block/bootdevice/by-name/EFS	flags=backup=1;display="EFS"
+/cpefs		ext4	/dev/block/bootdevice/by-name/CPEFS	flags=backup=1;display="CPEFS";subpartitionof=/efs
+/usb-otg	vfat	/dev/block/sdd1 /dev/block/sdd		flags=display="USB-OTG";storage;wipeingui;removable

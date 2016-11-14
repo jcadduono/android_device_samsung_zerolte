@@ -33,9 +33,7 @@
 #include "property_service.h"
 #include "util.h"
 
-#include "init_exynos.h"
-
-void init_exynos_properties(void)
+void vendor_load_properties()
 {
 	char bootloader[PROP_VALUE_MAX];
 
